@@ -1,3 +1,7 @@
 Let's get it! 👨🏾‍💻
 
 1. Generate a list of all Pokemon ✅
+
+
+
+// Added Pokemon font from https://www.dafont.com/pokemon.font
