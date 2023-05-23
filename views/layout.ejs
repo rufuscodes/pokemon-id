@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pokemon.id: <%= pokemon.name %></title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar is-dark">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://pokemon.id">
+          <img
+            src="/assets/img/pokedex.png"
+            alt="Pokemon.id Logo"
+            height="98"
+          />
+          <h1>Pokemon.ID</h1>
+        </a>
+        <div class="navbar-burger" data-target="navMenuColordark">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navMenuColordark" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="https://pokemon.id/"> Home </a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a
+              class="navbar-link"
+              href="https://pokemon.id/documentation/overview/start/"
+            >
+              Docs
+            </a>
+            <div class="navbar-dropdown">
+              <a
+                class="navbar-item"
+                href="https://pokemon.id/documentation/overview/start/"
+              >
+                Overview
+              </a>
+              <a
+                class="navbar-item"
+                href="https://pokemon.id/documentation/overview/modifiers/"
+              >
+                Modifiers
+              </a>
+              <a
+                class="navbar-item"
+                href="https://pokemon.id/documentation/columns/basics/"
+              >
+                Columns
+              </a>
+              <a
+                class="navbar-item"
+                href="https://pokemon.id/documentation/layout/container/"
+              >
+                Layout
+              </a>
+              <a
+                class="navbar-item"
+                href="https://pokemon.id/documentation/form/general/"
+              >
+                Form
+              </a>
+              <hr class="navbar-divider" />
+              <a
+                class="navbar-item"
+                href="https://pokemon.id/documentation/elements/box/"
+              >
+                Elements
+              </a>
+              <a
+                class="navbar-item is-active"
+                href="https://pokemon.id/documentation/components/breadcrumb/"
+              >
+                Components
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control">
+                <a
+                  class="bd-tw-button button"
+                  data-social-network="Twitter"
+                  data-social-action="tweet"
+                  data-social-target="https://pokemon.id"
+                  target="_blank"
+                  href=""
+                >
+                  <span class="icon">
+                    <i class="fab fa-twitter"></i>
+                  </span>
+                  <span> Tweet </span>
+                </a>
+              </p>
+              <p class="control">
+                <a
+                  class="button is-primary"
+                  href="https://github.com/rufuscodes/"
+                >
+                  <span class="icon">
+                    <i class="fas fa-download"></i>
+                  </span>
+                  <span>Download</span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <%-body%>
+  </body>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Pokemon.ID</strong> by
+        <a href="https://rufus.codes">rufus.codes</a>. The source code is
+        licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The
+        website content is licensed
+        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+          >CC BY NC SA 4.0</a
+        >.
+      </p>
+    </div>
+  </footer>
+</html>

@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Space+Mono&display=swap');
+@font-face {
+    font-family: dafont-pokemon;
+    src: url(../pokemon-typeface/Pokemon-Solid.ttf);
+    font-weight: bold;
+}
+body {
+    font-family: 'Luckiest Guy', cursive;
+}
+
+h1 {
+        font-family: dafont-pokemon;
+        font-size: 50px;
+}

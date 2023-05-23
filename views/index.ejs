@@ -1,0 +1,115 @@
+<section class="is-primary">
+  <div class="hero-body">
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+        <h1><%= pokemon.name %></h1>
+    </p>
+    <button class="card-header-icon" aria-label="more options">
+      <span class="icon">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <ul>
+      <li>
+        <img
+          src="<%= pokemon.sprites.other['official-artwork'].front_default %>"
+        />
+      </li>
+      </ul>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <a href="#" class="card-footer-item">❤️ Save</a>
+    <a href="#" class="card-footer-item">🖨️ Print</a>
+    <a href="#" class="card-footer-item">🕹️ Stats</a>
+  </footer>
+</div>
+
+<br>
+    <ul>
+         <h1 style="text-align: center;"><%= pokemon.name %> Sprites</h1>
+
+      <li>Back Female: <img src="<%= pokemon.sprites.back_female %>" /></li>
+      <li>Back Shiny: <img src="<%= pokemon.sprites.back_shiny %>" /></li>
+      <li>
+        Back Shiny Female:
+        <img src="<%= pokemon.sprites.back_shiny_female %>" />
+      </li>
+      <li>Front Default: <img src="<%= pokemon.sprites.front_default %>" /></li>
+      <li>Front Female: <img src="<%= pokemon.sprites.front_female %>" /></li>
+      <li>Front Shiny: <img src="<%= pokemon.sprites.front_shiny %>" /></li>
+      <li>
+        Front Shiny Female:
+        <img src="<%= pokemon.sprites.front_shiny_female %>" />
+      </li>
+      <li>
+        Other Sprites:
+        <ul>
+          <li>
+            Dream World:
+            <ul>
+              <li>
+                Front Default:
+                <img
+                  src="<%= pokemon.sprites.other.dream_world.front_default %>"
+                />
+              </li>
+              <li>
+                Front Female:
+                <img
+                  src="<%= pokemon.sprites.other.dream_world.front_female %>"
+                />
+              </li>
+            </ul>
+          </li>
+          <li>
+            Home:
+            <ul>
+              <li>
+                Front Default:
+                <img src="<%= pokemon.sprites.other.home.front_default %>" />
+              </li>
+              <li>
+                Front Female:
+                <img src="<%= pokemon.sprites.other.home.front_female %>" />
+              </li>
+              <li>
+                Front Shiny:
+                <img src="<%= pokemon.sprites.other.home.front_shiny %>" />
+              </li>
+              <li>
+                Front Shiny Female:
+                <img
+                  src="<%= pokemon.sprites.other.home.front_shiny_female %>"
+                />
+              </li>
+            </ul>
+          </li>
+          <li>
+            Official Artwork:
+            <ul>
+              <li>
+                Front Default:
+                <img
+                  src="<%= pokemon.sprites.other['official-artwork'].front_default %>"
+                />
+              </li>
+              <li>
+                Front Shiny:
+                <img
+                  src="<%= pokemon.sprites.other['official-artwork'].front_shiny %>"
+                />
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+
