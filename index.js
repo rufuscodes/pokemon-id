@@ -10,13 +10,25 @@ app.use(express.urlencoded({ extended: false }));
 app.use(ejsLayouts);
 app.use(express.static(__dirname + '/public'));
 
-// Index route
+
+
 app.get('/', function (req, res) {
+    res.render('index')
+});
+
+
+
+
+
+
+
+// Index route
+app.get('/poke-search', function (req, res) {
     axios.get('https://pokeapi.co/api/v2/pokemon/eevee')
         .then(function (response) {
             // handle success
             const pokemon = response.data;
-            res.render('index', { pokemon });
+            res.render('poke-search', { pokemon });
         })
         .catch(function (error) {
             res.json({ message: 'Pokemon.ID data not found. Please try again later.' });
