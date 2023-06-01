@@ -5,17 +5,18 @@ const { user } = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn');
 
 
+
 router.get("/signup", (req, res) => {
   return res.render("auth/signup");
 });
 
 router.get("/login", (req, res) => {
-  return res.render("auth/login");
+  return res.render('auth/login');
 });
 
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/auth/login',
+  successRedirect: '/profile',
+  failureRedirect: '/',
   successFlash: 'Welcome back ...',
   failureFlash: 'Either email or password is incorrect' 
 }));

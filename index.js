@@ -1,8 +1,28 @@
+require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const app = express();
-const ejsLayouts = require('express-ejs-layouts')
 const router = express.Router();
+
+const ejsLayouts = require('express-ejs-layouts')
+const session = require('express-session');
+const flash = require('connect-flash');
+const SECRET_SESSION = process.env.SECRET_SESSION;
+
+const passport = require('./config/ppConfig');
+const isLoggedIn = require('./middleware/isLoggedIn');
+
+// console.log(SECRET_SESSION);
+
+app.use(flash());            // flash middleware
+
+
+
+app.use(session({
+  secret: SECRET_SESSION,    // What we actually will be giving the user on our site as a session cookie
+  resave: false,             // Save the session even if it's modified, make this false
+  saveUninitialized: true    // If we have a new session, we save it, therefore making that true
+}));
 
 
 app.set('view engine', 'ejs');
@@ -11,14 +31,29 @@ app.use(ejsLayouts);
 app.use(express.static(__dirname + '/public'));
 
 
+app.use(passport.initialize());      // Initialize passport
+app.use(passport.session());         // Add a session
 
-app.get('/', function (req, res) {
-    res.render('index')
+
+app.use((req, res, next) => {
+  console.log(res.locals);
+  res.locals.alerts = req.flash();
+  res.locals.currentUser = req.user;
+  next();
 });
+app.use('/auth', require('./controllers/auth'));
+app.use('/', require('./controllers/index'));
 
 
 
 
+
+
+// Add this above /auth controllers
+app.get('/profile', isLoggedIn, (req, res) => {
+  const { id, name, email } = req.user.get(); 
+  res.render('profile', { id, name, email });
+});
 
 
 
