@@ -15,9 +15,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   pokemon.init({
     name: DataTypes.STRING,
-    type: DataTypes.STRING,
-    pokemondId: DataTypes.STRING,
-    pokemonImage: DataTypes.STRING
+    url: DataTypes.STRING,
+    base: DataTypes.STRING,
+    image: DataTypes.STRING,
+    pokeType1: DataTypes.STRING,
+    pokeType2: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'pokemon',

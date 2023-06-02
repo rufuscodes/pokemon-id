@@ -15,6 +15,18 @@ module.exports = {
       url: {
         type: Sequelize.STRING
       },
+      base: {
+        type: Sequelize.STRING
+      },
+       image: {
+        type: Sequelize.STRING
+      },
+        pokeType1: {
+        type: Sequelize.STRING
+      },
+        pokeType2: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

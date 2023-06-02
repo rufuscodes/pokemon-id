@@ -12,7 +12,13 @@ const SECRET_SESSION = process.env.SECRET_SESSION;
 const passport = require('./config/ppConfig');
 const isLoggedIn = require('./middleware/isLoggedIn');
 
-// console.log(SECRET_SESSION);
+const db = require('./models');
+const { user, pokemon } = require('./models');
+
+
+
+
+// console.log(SECRET_SESSION); 
 
 app.use(flash());            // flash middleware
 
@@ -41,8 +47,11 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
 });
-app.use('/auth', require('./controllers/auth'));
-app.use('/', require('./controllers/index'));
+
+
+
+
+
 
 
 
@@ -55,20 +64,64 @@ app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile', { id, name, email });
 });
 
+app.use('/auth', require('./controllers/auth'));
+app.use('/', require('./controllers/index'));
+
+// app.get('/poke-search', function (req, res) {
+//   const pokemonData = pokemon.findAll()
+//   console.log('Do you see pokemon', pokemonData);
+//   res.render('poke-search', { pokemon: pokemonData })
+// });
 
 
-// Index route
 app.get('/poke-search', function (req, res) {
-    axios.get('https://pokeapi.co/api/v2/pokemon/eevee')
-        .then(function (response) {
-            // handle success
-            const pokemon = response.data;
-            res.render('poke-search', { pokemon });
+    pokemon.findAll()
+    .then(foundPokemon => {
+        // found pokemon
+        console.log(foundPokemon);
+        // get all other capsules
+        pokemon.findAll()
+        .then(pokemons => {
+            console.log(pokemons)
+            res.render('poke-search', { pokemon: foundPokemon })
         })
-        .catch(function (error) {
-            res.json({ message: 'Pokemon.ID data not found. Please try again later.' });
-        });
+        .catch(err => {
+            console.log('Error', err);
+            res.render('no-result');
+        })
+    })
+    .catch(err => {
+        console.log('Error', err);
+        res.render('no-result');
+    })
 });
+
+
+app.get('/:name', function (req, res) {
+    pokemon.findOne({
+        where: { name: req.params.name }
+    })
+    .then(foundPokemon => {
+        // found pokemon
+        console.log(foundPokemon);
+        // get all other capsules
+        pokemon.findAll()
+        .then(pokemons => {
+            console.log(pokemons)
+            res.render('single-pokemon', { pokemons: foundPokemon })
+        })
+        .catch(err => {
+            console.log('Error', err);
+            res.render('no-result');
+        })
+    })
+    .catch(err => {
+        console.log('Error', err);
+        res.render('no-result');
+    })
+});
+
+
 
 const PORT = process.env.PORT || 8000;
 

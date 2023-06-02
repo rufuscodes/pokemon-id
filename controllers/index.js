@@ -3,23 +3,32 @@ const axios = require('axios');
 
 const router = express.Router();
 const passport = require('../config/ppConfig');
-const { user } = require('../models');
+const { user, pokemon } = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn');
 
 
 
 router.get('/', function (req, res) {
-axios.get('https://pokeapi.co/api/v2/pokemon/eevee')
-        .then(function (response) {
-            // handle success
-            const pokemon = response.data;
-            res.render('poke-search', { pokemon });
+    pokemon.findAll()
+    .then(foundPokemon => {
+        // found pokemon
+        console.log(foundPokemon);
+        // get all other capsules
+        pokemon.findAll()
+        .then(pokemons => {
+            console.log(pokemons)
+            res.render('poke-search', { pokemon: foundPokemon })
         })
-        .catch(function (error) {
-            res.json({ message: 'Pokemon.ID data not found. Please try again later.' });
-        });
+        .catch(err => {
+            console.log('Error', err);
+            res.render('no-result');
+        })
+    })
+    .catch(err => {
+        console.log('Error', err);
+        res.render('no-result');
+    })
 });
-
 
 
 module.exports = router;
