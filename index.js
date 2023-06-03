@@ -65,6 +65,7 @@ app.get('/profile', isLoggedIn, (req, res) => {
 });
 
 app.use('/auth', require('./controllers/auth'));
+app.use('/pokemon', require("./controllers/pokemon") )
 app.use('/', require('./controllers/index'));
 
 // app.get('/poke-search', function (req, res) {
@@ -72,6 +73,20 @@ app.use('/', require('./controllers/index'));
 //   console.log('Do you see pokemon', pokemonData);
 //   res.render('poke-search', { pokemon: pokemonData })
 // });
+
+app.get('/pokemon', function(req, res) {
+    return res.render('search');
+});
+
+
+app.get('/search', function(req, res) {
+    return res.render('search');
+});
+
+
+
+
+
 
 
 app.get('/poke-search', function (req, res) {
@@ -97,29 +112,7 @@ app.get('/poke-search', function (req, res) {
 });
 
 
-app.get('/:name', function (req, res) {
-    pokemon.findOne({
-        where: { name: req.params.name }
-    })
-    .then(foundPokemon => {
-        // found pokemon
-        console.log(foundPokemon);
-        // get all other capsules
-        pokemon.findAll()
-        .then(pokemons => {
-            console.log(pokemons)
-            res.render('single-pokemon', { pokemons: foundPokemon })
-        })
-        .catch(err => {
-            console.log('Error', err);
-            res.render('no-result');
-        })
-    })
-    .catch(err => {
-        console.log('Error', err);
-        res.render('no-result');
-    })
-});
+
 
 
 

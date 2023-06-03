@@ -1,0 +1,49 @@
+<section class="section" style="margin-top: 200px">
+  <div class="container">
+    <div class="columns is-desktop is-justify-content-center">
+      <div class="column is-8-desktop">
+        <div class="p-6 shadow rounded content">
+          <form method="POST" action="/pokemon/search">
+            <div class="columns is-multiline">
+              <div class="form-group column is-12">
+                <label for="category">Search By Category</label>
+                <select
+                  id="category"
+                  class="input custom-select"
+                  name="category"
+                  required
+                >
+                  <option selected disabled>
+                    Choose Your Category: Name, Pokedex ID, Element Type, Base
+                    Points
+                  </option>
+                  <option value="name">Name</option>
+                  <option value="pokemon_id">Pokedex ID</option>
+                  <option value="pokeType1">Type Element 1</option>
+                  <option value="pokeType2">Type Element 2</option>
+                  <option value="serial">Base Points</option>
+                </select>
+              </div>
+              <div class="form-group column is-12">
+                <label for="item"
+                  >Name, Pokedex ID, Element Type, Base Points</label
+                >
+                <input
+                  type="text"
+                  class="input"
+                  id="item"
+                  name="item"
+                  placeholder="Search Pokemon"
+                  required
+                />
+              </div>
+              <div class="column is-12">
+                <button type="submit" class="btn btn-primary">Send</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
