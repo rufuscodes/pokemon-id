@@ -17,12 +17,7 @@ module.exports = {
       console.log(response.data);
 
 
-      
-
       const pokemon = [];
-
-
-
 
       for (const c of response.data.results) {
 
@@ -33,7 +28,9 @@ module.exports = {
         const data = await res.json();
         const pokeNumberData = data.base_experience;
         const pokeImage = data.sprites.versions['generation-v']['black-white'].animated.front_shiny || data.sprites.other['official-artwork'].front_default;
-        const pokeType1 = data.types[0].type['name']
+        const pokeType1 = data.types[0].type['name'];
+        // const gameIndex = data.game_indices?.[0]?.game_index ?? 'none';
+        const gameIndex = parseInt(data['id'].toString().padStart(3, '0'))
         // let pokeType2 = data.types[1].type['name']
 
         // if (pokeType2 === undefined) {
@@ -44,7 +41,7 @@ module.exports = {
 
 
 
-        console.log('PokemonNumberData', pokeNumberData, typeof(pokeNumberData), pokeImage, pokeType1, pokeType2);
+        console.log('PokemonNumberData', pokeNumberData, typeof(pokeNumberData), pokeImage, pokeType1, pokeType2, gameIndex);
 
 
         const result = {
@@ -54,6 +51,7 @@ module.exports = {
           image: pokeImage,
           pokeType1: pokeType1,
           pokeType2: pokeType2,
+          gameIndex: gameIndex,
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
         };

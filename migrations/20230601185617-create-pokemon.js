@@ -27,6 +27,9 @@ module.exports = {
         pokeType2: {
         type: Sequelize.STRING
       },
+        gameIndex: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

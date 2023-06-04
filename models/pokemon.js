@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     base: DataTypes.STRING,
     image: DataTypes.STRING,
     pokeType1: DataTypes.STRING,
-    pokeType2: DataTypes.STRING
+    pokeType2: DataTypes.STRING,
+    gameIndex: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'pokemon',
