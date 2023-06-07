@@ -15,19 +15,20 @@ const isLoggedIn = require('./middleware/isLoggedIn');
 const db = require('./models');
 const { user, pokemon } = require('./models');
 
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'));
 
 
 
-// console.log(SECRET_SESSION); 
 
-app.use(flash());            // flash middleware
+app.use(flash());         
 
 
 
 app.use(session({
-  secret: SECRET_SESSION,    // What we actually will be giving the user on our site as a session cookie
-  resave: false,             // Save the session even if it's modified, make this false
-  saveUninitialized: true    // If we have a new session, we save it, therefore making that true
+  secret: SECRET_SESSION,  
+  resave: false,             
+  saveUninitialized: true    
 }));
 
 
@@ -66,6 +67,8 @@ app.get('/profile', isLoggedIn, (req, res) => {
 
 app.use('/auth', require('./controllers/auth'));
 app.use('/pokemon', require("./controllers/pokemon") )
+app.use('/favorites', require('./controllers/favorites'));
+
 app.use('/', require('./controllers/index'));
 
 // app.get('/poke-search', function (req, res) {
@@ -112,6 +115,9 @@ app.get('/poke-search', function (req, res) {
 });
 
 
+app.get('/favorites', function(req, res) {
+    return res.render('no-result');
+});
 
 
 

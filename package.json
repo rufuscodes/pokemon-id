@@ -33,6 +33,7 @@
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
     "connect-flash": "^0.1.1",
+    "dotenv": "^16.0.2",
     "ejs": "^3.1.9",
     "ejs-layouts": "^0.0.1",
     "express": "^4.18.2",
@@ -48,14 +49,12 @@
     "pg": "^8.11.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.31.1",
-    "supertest": "^6.3.3",
-    "dotenv": "^16.0.2"
+    "supertest": "^6.3.3"
   },
   "devDependencies": {
     "bulma": "^0.9.4",
     "chai": "^4.3.6",
     "mocha": "^10.0.0",
     "node-sass": "^9.0.0"
-    
   }
 }
