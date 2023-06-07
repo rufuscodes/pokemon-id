@@ -49,6 +49,24 @@
         <!-- PROFILE STATS -->
         <div class="profile-stats fixed-height">
           <!-- PROFILE STATS COVER -->
+          <form
+            action="/auth/profile-upload"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="form-group">
+              <label for="profilePic">Profile Picture</label>
+              <input
+                type="file"
+                class="form-control-file"
+                id="profilePic"
+                name="profilePic"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Update Profile
+            </button>
+          </form>
           <div class="profile-stats-cover">
             <!-- PROFILE STATS COVER TITLE -->
             <p class="profile-stats-cover-title">Welcome Back!</p>
@@ -75,10 +93,14 @@
               <!-- USER AVATAR CONTENT -->
               <div class="user-avatar-content">
                 <!-- HEXAGON -->
-                <div
-                  class="hexagon-image-82-90"
-                  data-src="/assets/img/avatar/01.jpg"
-                ></div>
+                <div>
+                  <a href="/profile"
+                    ><img
+                      src="<%= currentUser.profilePic || '/images/default-profile-pic.jpg' %>"
+                      alt="Profile Picture"
+                      class="rounded-circle profile-pic"
+                  /></a>
+                </div>
                 <!-- /HEXAGON -->
               </div>
               <!-- /USER AVATAR CONTENT -->

@@ -18,6 +18,10 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
+      profilePic: {
+        type: Sequelize.STRING,
+        allowNull: true // allow null in case user doesn't have a profile picture yet
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

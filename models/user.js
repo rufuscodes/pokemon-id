@@ -41,7 +41,11 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Password must be between 8 and 50 characters'
         }
       }
-    }
+    },
+    profilePic: {
+    type: DataTypes.STRING,
+    allowNull: true // allow null in case user doesn't have a profile picture yet
+  }
   }, {
     sequelize,
     modelName: 'user',
