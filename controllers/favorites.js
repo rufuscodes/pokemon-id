@@ -6,10 +6,29 @@ const passport = require('../config/ppConfig');
 const { user, pokemon, favorite } = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn');
 
+
+
+
+
+
+
+
 router.get('/', isLoggedIn, async (req, res) => {
+    let favoritesData = await favorite.findAll({
+  where: { userId: req.user.id },
+});
   const favorites = await favorite.findAll({ where: { userId: req.user.id } });
+    console.log(favorites.name)
+    favoritesData = await Promise.all(favoritesData.map(async (favorite) => {
+  const favoritePokemon = await pokemon.findOne({
+    where: { name: favorite.name }
+  });
+  favorite.dataValues.pokemon = favoritePokemon;
+  return favorite;
+}));
+  
   console.log('can we see favorites?',favorites);
-  res.render('favorites', { favorites: favorites });
+  res.render('favorites', { favorites: favoritesData });
 });
 
 // Add favorite Pokemon

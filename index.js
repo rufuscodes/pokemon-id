@@ -17,14 +17,7 @@ const { user, pokemon } = require('./models');
 
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
-
-
-
-
 app.use(flash());         
-
-
-
 app.use(session({
   secret: SECRET_SESSION,  
   resave: false,             
@@ -48,16 +41,6 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
 });
-
-
-
-
-
-
-
-
-
-
 
 // Add this above /auth controllers
 app.get('/profile', isLoggedIn, (req, res) => {
@@ -83,14 +66,9 @@ app.get('/pokemon', function(req, res) {
 
 
 app.get('/search', function(req, res) {
+    
     return res.render('search');
 });
-
-
-
-
-
-
 
 app.get('/poke-search', function (req, res) {
     pokemon.findAll()

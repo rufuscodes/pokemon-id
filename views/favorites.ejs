@@ -1,141 +1,37 @@
 <!-- GRID -->
 <div class="grid grid-3-3-3-3 centered" style="padding-top: 100px">
-  <% for( let i = 0; i < favorites.length; i++ ) { %> <% let favorite =
-  favorites[i] %>
+  <% if (favorites.length === 0) { %>
+  <p>You have no favorite Pokemon. <a href="/pokemon">View all Pokemon</a></p>
+  <% } else { %> <% for( let i = 0; i < favorites.length; i++ ) { %> <% let
+  favorite = favorites[i] %>
 
-  <!-- PRODUCT PREVIEW -->
   <div class="product-preview">
-    <!-- PRODUCT PREVIEW IMAGE -->
-    <a href="/pokemon/<%= favorite.dataValues.name %>">
+    <a href="/pokemon/<%= favorite.dataValues.pokemon.name %>">
       <figure class="product-preview-image liquid">
-        <img src="" alt="item-01" />
+        <img
+          src="<%= favorite.dataValues.pokemon.image %>"
+          alt="<%= favorite.dataValues.pokemon.name %>"
+        />
       </figure>
     </a>
-    <!-- /PRODUCT PREVIEW IMAGE -->
 
-    <!-- PRODUCT PREVIEW INFO -->
     <div class="product-preview-info">
-      <!-- TEXT STICKER -->
-      <p class="text-sticker"><span class="highlighted">$</span> 12.00</p>
-      <!-- /TEXT STICKER -->
-
-      <!-- PRODUCT PREVIEW TITLE -->
       <p class="product-preview-title">
-        <a href="/pokemeon/<%= favorite.dataValues.name %>"
+        <a href="/pokemon/<%= favorite.dataValues.name %>"
           ><%= favorite.dataValues.name %></a
         >
       </p>
-      <!-- /PRODUCT PREVIEW TITLE -->
-
-      <!-- PRODUCT PREVIEW CATEGORY -->
-      <p class="product-preview-category digital">
-        <a href="marketplace-category.html"></a>
-      </p>
-      <!-- /PRODUCT PREVIEW CATEGORY -->
-
-      <!-- PRODUCT PREVIEW TEXT -->
-      <p class="product-preview-text">
-        Awesome hexagon themed stream pack, you can change all colors and...
-      </p>
-      <!-- /PRODUCT PREVIEW TEXT -->
     </div>
-    <!-- /PRODUCT PREVIEW INFO -->
-    <!-- PRODUCT PREVIEW META -->
-    <div class="product-preview-meta">
-      <!-- PRODUCT PREVIEW AUTHOR -->
-      <div class="product-preview-author">
-        <!-- PRODUCT PREVIEW AUTHOR IMAGE -->
-        <a
-          class="product-preview-author-image user-avatar micro no-border"
-          href="profile-timeline.html"
-        >
-          <!-- USER AVATAR CONTENT -->
-          <div class="user-avatar-content">
-            <!-- HEXAGON -->
-            <div class="hexagon-image-18-20" data-src="img/avatar/01.jpg"></div>
-            <!-- /HEXAGON -->
-          </div>
-          <!-- /USER AVATAR CONTENT -->
-        </a>
-        <!-- /PRODUCT PREVIEW AUTHOR IMAGE -->
 
-        <!-- PRODUCT PREVIEW AUTHOR TITLE -->
-        <p class="product-preview-author-title">Posted By</p>
-        <!-- /PRODUCT PREVIEW AUTHOR TITLE -->
-
-        <!-- PRODUCT PREVIEW AUTHOR TEXT -->
-        <p class="product-preview-author-text">
-          <a href="profile-timeline.html">Marina Valentine</a>
-        </p>
-        <!-- /PRODUCT PREVIEW AUTHOR TEXT -->
-      </div>
-      <!-- /PRODUCT PREVIEW AUTHOR -->
-
-      <!-- RATING LIST -->
-      <div class="rating-list">
-        <!-- RATING -->
-        <div class="rating filled">
-          <!-- RATING ICON -->
-          <svg class="rating-icon icon-star">
-            <use xlink:href="#svg-star"></use>
-          </svg>
-          <!-- /RATING ICON -->
-        </div>
-        <!-- /RATING -->
-
-        <!-- RATING -->
-        <div class="rating filled">
-          <!-- RATING ICON -->
-          <svg class="rating-icon icon-star">
-            <use xlink:href="#svg-star"></use>
-          </svg>
-          <!-- /RATING ICON -->
-        </div>
-        <!-- /RATING -->
-
-        <!-- RATING -->
-        <div class="rating filled">
-          <!-- RATING ICON -->
-          <svg class="rating-icon icon-star">
-            <use xlink:href="#svg-star"></use>
-          </svg>
-          <!-- /RATING ICON -->
-        </div>
-        <!-- /RATING -->
-
-        <!-- RATING -->
-        <div class="rating filled">
-          <!-- RATING ICON -->
-          <svg class="rating-icon icon-star">
-            <use xlink:href="#svg-star"></use>
-          </svg>
-          <!-- /RATING ICON -->
-        </div>
-        <!-- /RATING -->
-
-        <!-- RATING -->
-        <div class="rating">
-          <!-- RATING ICON -->
-          <svg class="rating-icon icon-star">
-            <use xlink:href="#svg-star"></use>
-          </svg>
-          <!-- /RATING ICON -->
-        </div>
-        <!-- /RATING -->
-      </div>
-      <!-- /RATING LIST -->
-    </div>
-    <!-- /PRODUCT PREVIEW META -->
     <form
       action="/favorites/remove/<%= favorite.dataValues.name %>?_method=DELETE"
       method="POST"
+      onsubmit="return confirm('Are you sure you want to remove this item from your favorites?');"
     >
       <input type="submit" value="Remove from Favorites" />
     </form>
   </div>
-
-  <% } %>
-  <!-- /PRODUCT PREVIEW -->
+  <% } %> <% } %>
 </div>
 <!-- /GRID -->
 <!-- /SECTION -->

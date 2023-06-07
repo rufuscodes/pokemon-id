@@ -8,8 +8,10 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 
 
 
-router.get('/', function (req, res) {
-    
+router.get('/', isLoggedIn, async function (req, res) {
+    const favorites = await favorite.findAll({
+  where: { userId: req.user.id },
+});
     pokemon.findAll()
     .then(foundPokemon => {
         // found pokemon
@@ -18,7 +20,7 @@ router.get('/', function (req, res) {
         pokemon.findAll()
         .then(pokemons => {
             console.log(pokemons)
-            res.render('poke-search', { pokemon: foundPokemon })
+            res.render('poke-search', { pokemon: foundPokemon, favorites: favorites })
         })
         .catch(err => {
             console.log('Error', err);
@@ -124,7 +126,10 @@ router.get('/:name', function (req, res) {
     })
 });
 
-router.get('/type-1/:pokeType1', function (req, res) {
+router.get('/type-1/:pokeType1', isLoggedIn, async function (req, res) {
+    const favorites = await favorite.findAll({
+  where: { userId: req.user.id },
+});
     pokemon.findAll({
         where: { pokeType1: req.params.pokeType1 }
     })
@@ -135,7 +140,7 @@ router.get('/type-1/:pokeType1', function (req, res) {
         pokemon.findAll()
         .then(pokemons => {
             console.log(pokemons)
-            res.render('poke-search', { pokemon: foundPokemon })
+            res.render('poke-search', { pokemon: foundPokemon, favorites: favorites })
         })
         .catch(err => {
             console.log('Error', err);
@@ -148,7 +153,10 @@ router.get('/type-1/:pokeType1', function (req, res) {
     })
 });
 
-router.get('/type-2/:pokeType2', function (req, res) {
+router.get('/type-2/:pokeType2', isLoggedIn, async function (req, res) {
+    const favorites = await favorite.findAll({
+  where: { userId: req.user.id },
+});
     pokemon.findAll({
         where: { pokeType1: req.params.pokeType2 }
     })
@@ -159,7 +167,7 @@ router.get('/type-2/:pokeType2', function (req, res) {
         pokemon.findAll()
         .then(pokemons => {
             console.log(pokemons)
-            res.render('poke-search', { pokemon: foundPokemon })
+            res.render('poke-search', { pokemon: foundPokemon, favorites: favorites })
         })
         .catch(err => {
             console.log('Error', err);
@@ -198,74 +206,82 @@ router.get('/id/:gameIndex', function (req, res) {
 });
 
 
-router.post('/search', function (req, res) {
-    if (req.body.category === 'name') {
-        pokemon.findOne({
-            where: { name: req.body.item}
-        })
-        .then(foundPokemon => {
-            return res.redirect(`/pokemon/${foundPokemon.name}`);
-        })
-        .catch(err => {
-            console.log('Error', err);
-            res.render('no-result');
-        });
-    } else if (req.body.category === 'pokeType1') {
-        pokemon.findAll({
-            where: { pokeType1: req.body.item }
-        })
-        .then(foundPokemon => {
-            console.log(foundPokemon);
-            res.render('poke-search', { pokemon: foundPokemon });
-        })
-        .catch(err => {
-            console.log('Error', err);
-            res.render('no-result');
-        });
-    } else if (req.body.category === 'pokeType2') {
-        pokemon.findAll({
-            where: { pokeType2: req.body.item }
-        })
-        .then(foundPokemon => {
-            console.log(foundPokemon);
-            res.render('poke-search', { pokemon: foundPokemon });
-        })
-        .catch(err => {
-            console.log('Error', err);
-            res.render('no-result');
-        });
-    }
-         else if (req.body.category === 'base') {
-        pokemon.findAll({
-            where: { base: req.body.item }
-        })
-        .then(foundPokemon => {
-            console.log(foundPokemon);
-            res.render('poke-search', { pokemon: foundPokemon });
-        })
-        .catch(err => {
-            console.log('Error', err);
-            res.render('no-result');
-        });
-    }
-           else if (req.body.category === 'gameIndex') {
-        pokemon.findAll({
-            where: { gameIndex: req.body.item }
-        })
-        .then(foundPokemon => {
-            console.log(foundPokemon);
-            res.render('poke-search', { pokemon: foundPokemon });
-        })
-        .catch(err => {
-            console.log('Error', err);
-            res.render('no-result');
-        });
-    }
-    else {
-        // Invalid category selected
-        res.render('no-result');
-    }
+    router.post('/search', isLoggedIn, async function (req, res) {
+
+
+const favorites = await favorite.findAll({
+  where: { userId: req.user.id },
 });
+        if (req.body.category === 'name') {
+            pokemon.findOne({
+                where: { name: req.body.item}
+            })
+            .then(foundPokemon => {
+                return res.redirect(`/pokemon/${foundPokemon.name}`);
+            })
+            .catch(err => {
+                console.log('Error', err);
+                res.render('no-result');
+            });
+        } else if (req.body.category === 'pokeType1') {
+            pokemon.findAll({
+                where: { pokeType1: req.body.item }
+            })
+            .then(foundPokemon => {
+                console.log(foundPokemon);
+            res.render('poke-search', { pokemon: foundPokemon, favorites: favorites });
+            })
+            .catch(err => {
+                console.log('Error', err);
+                res.render('no-result');
+            });
+        } else if (req.body.category === 'pokeType2') {
+            pokemon.findAll({
+                where: { pokeType2: req.body.item }
+            })
+            .then(foundPokemon => {
+                console.log(foundPokemon);
+                res.render('poke-search', { pokemon: foundPokemon, favorites: favorites });
+
+            })
+            .catch(err => {
+                console.log('Error', err);
+                res.render('no-result');
+            });
+        }
+            else if (req.body.category === 'base') {
+            pokemon.findAll({
+                where: { base: req.body.item }
+            })
+            .then(foundPokemon => {
+                console.log(foundPokemon);
+                res.render('poke-search', { pokemon: foundPokemon, favorites: favorites });
+
+            })
+            .catch(err => {
+                console.log('Error', err);
+                res.render('no-result');
+            });
+        }
+            else if (req.body.category === 'gameIndex') {
+            pokemon.findAll({
+                where: { gameIndex: req.body.item }
+            })
+            .then(foundPokemon => {
+                console.log(foundPokemon);
+                res.render('poke-search', { pokemon: foundPokemon, favorites: favorites });
+
+            })
+            .catch(err => {
+                console.log('Error', err);
+                res.render('no-result');
+            });
+        }
+        else {
+            // Invalid category selected
+            res.render('no-result');
+        }
+    });
 
 
 
