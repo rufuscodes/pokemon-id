@@ -1,14 +1,14 @@
 <!-- GRID -->
 <div class="grid grid-3-3-3-3 centered" style="padding-top: 100px">
-  <% for( let i = 0; i < pokemon.length; i++ ) { %> <% let pokemons = pokemon[i]
-  %>
+  <% for( let i = 0; i < favorites.length; i++ ) { %> <% let favorite =
+  favorites[i] %>
 
   <!-- PRODUCT PREVIEW -->
   <div class="product-preview">
     <!-- PRODUCT PREVIEW IMAGE -->
-    <a href="/pokemon/<%= pokemons.dataValues.name %>">
+    <a href="/pokemon/<%= favorite.dataValues.name %>">
       <figure class="product-preview-image liquid">
-        <img src="<%= pokemons.dataValues.image %>" alt="item-01" />
+        <img src="" alt="item-01" />
       </figure>
     </a>
     <!-- /PRODUCT PREVIEW IMAGE -->
@@ -21,17 +21,15 @@
 
       <!-- PRODUCT PREVIEW TITLE -->
       <p class="product-preview-title">
-        <a href="/pokemeon/<%= pokemons.dataValues.name %>"
-          ><%= pokemons.dataValues.name %></a
+        <a href="/pokemeon/<%= favorite.dataValues.name %>"
+          ><%= favorite.dataValues.name %></a
         >
       </p>
       <!-- /PRODUCT PREVIEW TITLE -->
 
       <!-- PRODUCT PREVIEW CATEGORY -->
       <p class="product-preview-category digital">
-        <a href="marketplace-category.html"
-          ><%= pokemons.dataValues.pokeType1 %></a
-        >
+        <a href="marketplace-category.html"></a>
       </p>
       <!-- /PRODUCT PREVIEW CATEGORY -->
 
@@ -129,7 +127,7 @@
     </div>
     <!-- /PRODUCT PREVIEW META -->
     <form
-      action="/favorites/remove/<%= pokemons.dataValues.name %>?_method=DELETE"
+      action="/favorites/remove/<%= favorite.dataValues.name %>?_method=DELETE"
       method="POST"
     >
       <input type="submit" value="Remove from Favorites" />

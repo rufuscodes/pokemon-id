@@ -6,6 +6,11 @@ const passport = require('../config/ppConfig');
 const { user, pokemon, favorite } = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn');
 
+router.get('/', isLoggedIn, async (req, res) => {
+  const favorites = await favorite.findAll({ where: { userId: req.user.id } });
+  console.log('can we see favorites?',favorites);
+  res.render('favorites', { favorites: favorites });
+});
 
 router.get('/:name', isLoggedIn, async (req, res) => {
   try {
