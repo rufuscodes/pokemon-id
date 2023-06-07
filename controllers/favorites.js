@@ -12,7 +12,7 @@ router.get('/', isLoggedIn, async (req, res) => {
   res.render('favorites', { favorites: favorites });
 });
 
-router.get('/:name', isLoggedIn, async (req, res) => {
+router.post('/:name', isLoggedIn, async (req, res) => {
   try {
     const newFavorite = await favorite.create({
       userId: req.user.id,

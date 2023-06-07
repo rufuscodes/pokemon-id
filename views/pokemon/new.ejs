@@ -1,0 +1,82 @@
+<section class="section" style="margin-top: 200px">
+  <div class="container">
+    <div class="columns is-desktop is-justify-content-center">
+      <div class="column is-8-desktop">
+        <div class="p-6 shadow rounded content">
+          <h2 class="section-title">Create Pokemon</h2>
+          <form method="POST" action="/pokemon/new">
+            <div class="columns is-multiline">
+              <div class="form-group column is-12">
+                <label for="item">Pokemon Name</label>
+                <input
+                  type="text"
+                  class="input"
+                  id="name"
+                  name="name"
+                  placeholder="Enter new Pokemon Name"
+                  required
+                />
+              </div>
+
+              <div class="form-group column is-12">
+                <label for="type">Type 1</label>
+                <select
+                  id="type"
+                  class="input custom-select"
+                  name="type"
+                  required
+                >
+                  <option selected disabled>Choose Your type 1</option>
+                  <option value="grass">Grass</option></option>
+                  <option value="fire">Fire</option>
+                </select>
+              </div>
+
+              <div class="form-group column is-12">
+                <label for="type">Type 2</label>
+                <select
+                  id="type"
+                  class="input custom-select"
+                  name="type"
+                  required
+                >
+                  <option selected disabled>Choose Your type 2</option>
+                  <option value="grass">Grass</option>
+                  <option value="fire">Fire</option>
+                </select>
+              </div>
+
+              <div class="form-group column is-12">
+                <label for="item">Game Index</label>
+                <input
+                  type="text"
+                  class="input"
+                  id="gameIndex"
+                  name="gameIndex"
+                  placeholder="1"
+                  required
+                />
+              </div>
+
+              <div class="form-group column is-12">
+                <label for="item">Image Url</label>
+                <input
+                  type="text"
+                  class="input"
+                  id="image"
+                  name="image"
+                  placeholder="https://"
+                  required
+                />
+              </div>
+
+              <div class="column is-12">
+                <button type="submit" class="btn btn-primary">Send</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

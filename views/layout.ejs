@@ -16,6 +16,10 @@
         <!-- favicon -->
         <link rel="icon" href="/assets/img/favicon.ico" />
         <title>Pokemon.ID |  </title>
+
+        <style>
+          .header-search-dropdown, .chat-widget-messages {display:none;}
+        </style>
       </head>
       <body>
 
@@ -2706,7 +2710,7 @@
                 <!-- MENU MAIN ITEM -->
                 <li class="menu-main-item">
                   <!-- MENU MAIN ITEM LINK -->
-                  <a class="menu-main-item-link" href="#">Home</a>
+                  <a class="menu-main-item-link" href="../profile">Profile</a>
                   <!-- /MENU MAIN ITEM LINK -->
                 </li>
                 <!-- /MENU MAIN ITEM -->
@@ -2786,13 +2790,16 @@
           <!-- HEADER ACTIONS -->
           <div class="header-actions search-bar">
             <!-- INTERACTIVE INPUT -->
+            
+
+
+
+<form method="post" action="/pokemon/search">
+
             <div class="interactive-input dark">
-              <input
-                type="text"
-                id="search-main"
-                name="search_main"
-                placeholder="Search for a Pokemon"
-              />
+  <input type="hidden" name="category" value="name">
+  <input type="text" id="pokemon-name" name="item" placeholder="Search Pokemon" required>
+
               <!-- INTERACTIVE INPUT ICON WRAP -->
               <div class="interactive-input-icon-wrap">
                 <!-- INTERACTIVE INPUT ICON -->
@@ -2811,9 +2818,10 @@
                 </svg>
                 <!-- /INTERACTIVE INPUT ACTION ICON -->
               </div>
-              <!-- /INTERACTIVE INPUT ACTION -->
+                <!-- /INTERACTIVE INPUT ACTION -->
             </div>
             <!-- /INTERACTIVE INPUT -->
+</form>
 
             <!-- DROPDOWN BOX -->
             <div
