@@ -36,108 +36,19 @@
       <!-- /PRODUCT PREVIEW CATEGORY -->
 
       <!-- PRODUCT PREVIEW TEXT -->
-      <p class="product-preview-text">
-        Awesome hexagon themed stream pack, you can change all colors and...
-      </p>
-      <!-- /PRODUCT PREVIEW TEXT -->
+      <% if (favorites.includes(pokemons.dataValues.name)) { %>
+      <form
+        action="/favorites/remove/<%= pokemons.dataValues.name %>?_method=DELETE"
+        method="POST"
+      >
+        <input type="submit" value="Remove from Favorites" />
+      </form>
+      <% } else { %>
+      <form action="/favorites/<%= pokemons.dataValues.name %>" method="POST">
+        <input type="submit" value="Add to Favorites" />
+      </form>
+      <% } %>
     </div>
-    <!-- /PRODUCT PREVIEW INFO -->
-    <!-- PRODUCT PREVIEW META -->
-    <div class="product-preview-meta">
-      <!-- PRODUCT PREVIEW AUTHOR -->
-      <div class="product-preview-author">
-        <!-- PRODUCT PREVIEW AUTHOR IMAGE -->
-        <a
-          class="product-preview-author-image user-avatar micro no-border"
-          href="profile-timeline.html"
-        >
-          <!-- USER AVATAR CONTENT -->
-          <div class="user-avatar-content">
-            <!-- HEXAGON -->
-            <div class="hexagon-image-18-20" data-src="img/avatar/01.jpg"></div>
-            <!-- /HEXAGON -->
-          </div>
-          <!-- /USER AVATAR CONTENT -->
-        </a>
-        <!-- /PRODUCT PREVIEW AUTHOR IMAGE -->
-
-        <!-- PRODUCT PREVIEW AUTHOR TITLE -->
-        <p class="product-preview-author-title">Posted By</p>
-        <!-- /PRODUCT PREVIEW AUTHOR TITLE -->
-
-        <!-- PRODUCT PREVIEW AUTHOR TEXT -->
-        <p class="product-preview-author-text">
-          <a href="profile-timeline.html">Marina Valentine</a>
-        </p>
-        <!-- /PRODUCT PREVIEW AUTHOR TEXT -->
-      </div>
-      <!-- /PRODUCT PREVIEW AUTHOR -->
-
-      <!-- RATING LIST -->
-      <div class="rating-list">
-        <!-- RATING -->
-        <div class="rating filled">
-          <!-- RATING ICON -->
-          <svg class="rating-icon icon-star">
-            <use xlink:href="#svg-star"></use>
-          </svg>
-          <!-- /RATING ICON -->
-        </div>
-        <!-- /RATING -->
-
-        <!-- RATING -->
-        <div class="rating filled">
-          <!-- RATING ICON -->
-          <svg class="rating-icon icon-star">
-            <use xlink:href="#svg-star"></use>
-          </svg>
-          <!-- /RATING ICON -->
-        </div>
-        <!-- /RATING -->
-
-        <!-- RATING -->
-        <div class="rating filled">
-          <!-- RATING ICON -->
-          <svg class="rating-icon icon-star">
-            <use xlink:href="#svg-star"></use>
-          </svg>
-          <!-- /RATING ICON -->
-        </div>
-        <!-- /RATING -->
-
-        <!-- RATING -->
-        <div class="rating filled">
-          <!-- RATING ICON -->
-          <svg class="rating-icon icon-star">
-            <use xlink:href="#svg-star"></use>
-          </svg>
-          <!-- /RATING ICON -->
-        </div>
-        <!-- /RATING -->
-
-        <!-- RATING -->
-        <div class="rating">
-          <!-- RATING ICON -->
-          <svg class="rating-icon icon-star">
-            <use xlink:href="#svg-star"></use>
-          </svg>
-          <!-- /RATING ICON -->
-        </div>
-        <!-- /RATING -->
-      </div>
-      <!-- /RATING LIST -->
-    </div>
-    <!-- /PRODUCT PREVIEW META -->
-    <form
-      action="/favorites/remove/<%= pokemons.dataValues.name %>?_method=DELETE"
-      method="POST"
-    >
-      <input type="submit" value="Remove from Favorites" />
-    </form>
-
-    <form action="/favorites/<%= pokemons.dataValues.name %>" method="POST">
-      <input type="submit" value="Add to Favorites" />
-    </form>
   </div>
 
   <% } %>

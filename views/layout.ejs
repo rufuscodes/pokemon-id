@@ -22,7 +22,25 @@
           .profile-pic {
   width: 150px;
   height: 150px;
+
 }
+body > header > div:nth-child(4), body > header > div:nth-child(5) > div.action-list.dark {display: none !important;}
+
+            .element-icon {  padding-left: 10px; text-align: center; color: gold;}
+
+.menu .menu-item .menu-item-link {
+    display: block;
+    height: 28px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    font-size: .875rem;
+    font-weight: 700;
+    line-height: 48px;
+    position: relative;
+    transition: all .2s ease-in-out;
+}
+
+
         </style>
       </head>
       <body>
@@ -102,9 +120,7 @@
 
     <!-- LANDING INFO TEXT -->
     <p class="landing-info-text">
-      The next generation Pokemon Research Tool &amp; community of Players for
-      the Ethical Treatment of Pokemon <a href="">(PETP)</a>
-    </p>
+      The next generation Pokemon Research Tool
     <!-- /LANDING INFO TEXT -->
 
     <!-- TAB SWITCH -->
@@ -233,44 +249,7 @@
       <!-- SOCIAL LINKS -->
       <div class="social-links">
         <!-- SOCIAL LINK -->
-        <a class="social-link facebook" href="#">
-          <!-- ICON FACEBOOK -->
-          <svg class="icon-facebook">
-            <use xlink:href="#svg-facebook"></use>
-          </svg>
-          <!-- /ICON FACEBOOK -->
-        </a>
-        <!-- /SOCIAL LINK -->
 
-        <!-- SOCIAL LINK -->
-        <a class="social-link twitter" href="#">
-          <!-- ICON TWITTER -->
-          <svg class="icon-twitter">
-            <use xlink:href="#svg-twitter"></use>
-          </svg>
-          <!-- /ICON TWITTER -->
-        </a>
-        <!-- /SOCIAL LINK -->
-
-        <!-- SOCIAL LINK -->
-        <a class="social-link twitch" href="#">
-          <!-- ICON TWITCH -->
-          <svg class="icon-twitch">
-            <use xlink:href="#svg-twitch"></use>
-          </svg>
-          <!-- /ICON TWITCH -->
-        </a>
-        <!-- /SOCIAL LINK -->
-
-        <!-- SOCIAL LINK -->
-        <a class="social-link youtube" href="#">
-          <!-- ICON YOUTUBE -->
-          <svg class="icon-youtube">
-            <use xlink:href="#svg-youtube"></use>
-          </svg>
-          <!-- /ICON YOUTUBE -->
-        </a>
-        <!-- /SOCIAL LINK -->
       </div>
       <!-- /SOCIAL LINKS -->
     </div>
@@ -456,14 +435,14 @@
           <!-- USER AVATAR -->
           <a
             class="user-avatar small no-outline online"
-            href="../profile"
+            href="/profile"
           >
             <!-- USER AVATAR CONTENT -->
             <div class="user-avatar-content">
               <!-- HEXAGON -->
               <div
                 class="hexagon-image-30-32"
-                data-src="/assets/img/avatar/01.jpg"
+                data-src="<%= currentUser.profilePic || '/images/default-profile-pic.jpg' %>"
               ></div>
               <!-- /HEXAGON -->
             </div>
@@ -518,12 +497,12 @@
               <!-- MENU ITEM LINK -->
               <a
                 class="menu-item-link text-tooltip-tfr"
-                href="newsfeed.html"
-                data-title="Newsfeed"
+                href="/pokemon/type-1/bug"
+                data-title="Bug type Pokemon"
               >
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-newsfeed">
-                  <use xlink:href="#svg-newsfeed"></use>
+        <img width="38" height="38" class="element-icon" src="/assets/icons/bug.svg"/>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
               </a>
@@ -532,16 +511,16 @@
             <!-- /MENU ITEM -->
 
             <!-- MENU ITEM -->
-            <li class="menu-item active">
+            <li class="menu-item">
               <!-- MENU ITEM LINK -->
               <a
                 class="menu-item-link text-tooltip-tfr"
-                href="overview.html"
-                data-title="Overview"
+                href="/pokemon/type-1/dark"
+                data-title="Dark type Pokemon"
               >
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-overview">
-                  <use xlink:href="#svg-overview"></use>
+        <img width="38" height="38" class="element-icon" src="/assets/icons/dark.svg"/>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
               </a>
@@ -554,12 +533,12 @@
               <!-- MENU ITEM LINK -->
               <a
                 class="menu-item-link text-tooltip-tfr"
-                href="groups.html"
-                data-title="Groups"
+                href="/pokemon/type-1/dragon"
+                data-title="Dragon type Pokemon"
               >
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-group">
-                  <use xlink:href="#svg-group"></use>
+        <img width="38" height="38" class="element-icon" src="/assets/icons/dragon.svg"/>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
               </a>
@@ -572,12 +551,12 @@
               <!-- MENU ITEM LINK -->
               <a
                 class="menu-item-link text-tooltip-tfr"
-                href="members.html"
-                data-title="Members"
+                href="/pokemon/type-1/electric"
+                data-title="Electric type Pokemon"
               >
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-members">
-                  <use xlink:href="#svg-members"></use>
+        <img width="38" height="38" class="element-icon" src="/assets/icons/electric.svg"/>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
               </a>
@@ -590,12 +569,12 @@
               <!-- MENU ITEM LINK -->
               <a
                 class="menu-item-link text-tooltip-tfr"
-                href="badges.html"
-                data-title="Badges"
+                href="/pokemon/type-1/fire"
+                data-title="Fire type Pokemon"
               >
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-badges">
-                  <use xlink:href="#svg-badges"></use>
+        <img width="38" height="38" class="element-icon" src="/assets/icons/fire.svg"/>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
               </a>
@@ -608,12 +587,12 @@
               <!-- MENU ITEM LINK -->
               <a
                 class="menu-item-link text-tooltip-tfr"
-                href="quests.html"
-                data-title="Quests"
+                href="/pokemon/type-1/fairy"
+                data-title="Fairy type Pokemon"
               >
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-quests">
-                  <use xlink:href="#svg-quests"></use>
+        <img width="38" height="38" class="element-icon" src="/assets/icons/fairy.svg"/>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
               </a>
@@ -626,12 +605,12 @@
               <!-- MENU ITEM LINK -->
               <a
                 class="menu-item-link text-tooltip-tfr"
-                href="streams.html"
-                data-title="Streams"
+                href="/pokemon/type-1/fighting"
+                data-title="Fighting type Pokemon"
               >
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-streams">
-                  <use xlink:href="#svg-streams"></use>
+        <img width="38" height="38" class="element-icon" src="/assets/icons/fighting.svg"/>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
               </a>
@@ -644,12 +623,12 @@
               <!-- MENU ITEM LINK -->
               <a
                 class="menu-item-link text-tooltip-tfr"
-                href="events.html"
-                data-title="Events"
+                href="/pokemon/type-1/flying"
+                data-title="Flying type Pokemon"
               >
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-events">
-                  <use xlink:href="#svg-events"></use>
+        <img width="38" height="38" class="element-icon" src="/assets/icons/flying.svg"/>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
               </a>
@@ -662,12 +641,12 @@
               <!-- MENU ITEM LINK -->
               <a
                 class="menu-item-link text-tooltip-tfr"
-                href="forums.html"
-                data-title="Forums"
+                href="/pokemon/type-1/ghost"
+                data-title="Ghost type Pokemon"
               >
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-forums">
-                  <use xlink:href="#svg-forums"></use>
+        <img width="38" height="38" class="element-icon" src="/assets/icons/ghost.svg"/>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
               </a>
@@ -680,18 +659,150 @@
               <!-- MENU ITEM LINK -->
               <a
                 class="menu-item-link text-tooltip-tfr"
-                href="marketplace.html"
-                data-title="Marketplace"
+                href="/pokemon/type-1/grass"
+                data-title="Grass type Pokemon"
               >
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-marketplace">
-                  <use xlink:href="#svg-marketplace"></use>
+        <img width="38" height="38" class="element-icon" src="/assets/icons/grass.svg"/>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
               </a>
               <!-- /MENU ITEM LINK -->
             </li>
             <!-- /MENU ITEM -->
+
+                        <!-- MENU ITEM -->
+            <li class="menu-item">
+              <!-- MENU ITEM LINK -->
+              <a
+                class="menu-item-link text-tooltip-tfr"
+                href="/pokemon/type-1/ground"
+                data-title="Ground type Pokemon"
+              >
+                <!-- MENU ITEM LINK ICON -->
+                <svg class="menu-item-link-icon icon-marketplace">
+        <img width="38" height="38" class="element-icon" src="/assets/icons/ground.svg"/>
+                </svg>
+                <!-- /MENU ITEM LINK ICON -->
+              </a>
+              <!-- /MENU ITEM LINK -->
+            </li>
+            <!-- /MENU ITEM -->
+            
+
+                                    <!-- MENU ITEM -->
+            <li class="menu-item">
+              <!-- MENU ITEM LINK -->
+              <a
+                class="menu-item-link text-tooltip-tfr"
+                href="/pokemon/type-1/ice"
+                data-title="Ice type Pokemon"
+              >
+                <!-- MENU ITEM LINK ICON -->
+                <svg class="menu-item-link-icon icon-marketplace">
+        <img width="38" height="38" class="element-icon" src="/assets/icons/ice.svg"/>
+                </svg>
+                <!-- /MENU ITEM LINK ICON -->
+              </a>
+              <!-- /MENU ITEM LINK -->
+            </li>
+            <!-- /MENU ITEM -->
+            
+
+                                    <!-- MENU ITEM -->
+            <li class="menu-item">
+              <!-- MENU ITEM LINK -->
+              <a
+                class="menu-item-link text-tooltip-tfr"
+                href="/pokemon/type-1/poison"
+                data-title="Poison type Pokemon"
+              >
+                <!-- MENU ITEM LINK ICON -->
+                <svg class="menu-item-link-icon icon-marketplace">
+        <img width="38" height="38" class="element-icon" src="/assets/icons/poison.svg"/>
+                </svg>
+                <!-- /MENU ITEM LINK ICON -->
+              </a>
+              <!-- /MENU ITEM LINK -->
+            </li>
+            <!-- /MENU ITEM -->
+            
+                                    <!-- MENU ITEM -->
+            <li class="menu-item">
+              <!-- MENU ITEM LINK -->
+              <a
+                class="menu-item-link text-tooltip-tfr"
+                href="/pokemon/type-1/psychic"
+                data-title="Psychic type Pokemon"
+              >
+                <!-- MENU ITEM LINK ICON -->
+                <svg class="menu-item-link-icon icon-marketplace">
+        <img width="38" height="38" class="element-icon" src="/assets/icons/psychic.svg"/>
+                </svg>
+                <!-- /MENU ITEM LINK ICON -->
+              </a>
+              <!-- /MENU ITEM LINK -->
+            </li>
+            <!-- /MENU ITEM -->
+            
+                        <!-- MENU ITEM -->
+            <li class="menu-item">
+              <!-- MENU ITEM LINK -->
+              <a
+                class="menu-item-link text-tooltip-tfr"
+                href="/pokemon/type-1/rock"
+                data-title="Rock type Pokemon"
+              >
+                <!-- MENU ITEM LINK ICON -->
+                <svg class="menu-item-link-icon icon-marketplace">
+        <img width="38" height="38" class="element-icon" src="/assets/icons/rock.svg"/>
+                </svg>
+                <!-- /MENU ITEM LINK ICON -->
+              </a>
+              <!-- /MENU ITEM LINK -->
+            </li>
+            <!-- /MENU ITEM -->
+            
+
+                                    <!-- MENU ITEM -->
+            <li class="menu-item">
+              <!-- MENU ITEM LINK -->
+              <a
+                class="menu-item-link text-tooltip-tfr"
+                href="/pokemon/type-1/steel"
+                data-title="Steel type Pokemon"
+              >
+                <!-- MENU ITEM LINK ICON -->
+                <svg class="menu-item-link-icon icon-marketplace">
+        <img width="38" height="38" class="element-icon" src="/assets/icons/steel.svg"/>
+                </svg>
+                <!-- /MENU ITEM LINK ICON -->
+              </a>
+              <!-- /MENU ITEM LINK -->
+            </li>
+            <!-- /MENU ITEM -->
+            
+
+                                   <!-- MENU ITEM -->
+            <li class="menu-item">
+              <!-- MENU ITEM LINK -->
+              <a
+                class="menu-item-link text-tooltip-tfr"
+                href="/pokemon/type-1/water"
+                data-title="Water type Pokemon"
+              >
+                <!-- MENU ITEM LINK ICON -->
+                <svg class="menu-item-link-icon icon-marketplace">
+        <img width="38" height="38" class="element-icon" src="/assets/icons/water.svg"/>
+                </svg>
+                <!-- /MENU ITEM LINK ICON -->
+              </a>
+              <!-- /MENU ITEM LINK -->
+            </li>
+            <!-- /MENU ITEM -->
+             
+
           </ul>
           <!-- /MENU -->
         </nav>
@@ -729,7 +840,7 @@
                 <!-- HEXAGON -->
                 <div
                   class="hexagon-image-82-90"
-                  data-src="/assets/img/avatar/01.jpg"
+                  data-src="<%= currentUser.profilePic || '/images/default-profile-pic.jpg' %>"
                 ></div>
                 <!-- /HEXAGON -->
               </div>
@@ -779,113 +890,30 @@
 
             <!-- USER SHORT DESCRIPTION TITLE -->
             <p class="user-short-description-title">
-              <a href="profile-timeline.html">Marina Valentine</a>
+              <a href="/profile"><%= currentUser.name %></a>
             </p>
             <!-- /USER SHORT DESCRIPTION TITLE -->
 
             <!-- USER SHORT DESCRIPTION TEXT -->
             <p class="user-short-description-text">
-              <a href="#">www.gamehuntress.com</a>
+              <a href="mailto://<%= currentUser.name %>"><%= currentUser.email %></a>
             </p>
             <!-- /USER SHORT DESCRIPTION TEXT -->
           </div>
           <!-- /USER SHORT DESCRIPTION -->
-
-          <!-- BADGE LIST -->
-          <div class="badge-list small">
-            <!-- BADGE ITEM -->
-            <div class="badge-item">
-              <img src="/assets/img/badge/gold-s.png" alt="badge-gold-s" />
-            </div>
-            <!-- /BADGE ITEM -->
-
-            <!-- BADGE ITEM -->
-            <div class="badge-item">
-              <img src="/assets/img/badge/age-s.png" alt="badge-age-s" />
-            </div>
-            <!-- /BADGE ITEM -->
-
-            <!-- BADGE ITEM -->
-            <div class="badge-item">
-              <img
-                src="/assets/img/badge/caffeinated-s.png"
-                alt="badge-caffeinated-s"
-              />
-            </div>
-            <!-- /BADGE ITEM -->
-
-            <!-- BADGE ITEM -->
-            <div class="badge-item">
-              <img
-                src="/assets/img/badge/warrior-s.png"
-                alt="badge-warrior-s"
-              />
-            </div>
-            <!-- /BADGE ITEM -->
-
-            <!-- BADGE ITEM -->
-            <a class="badge-item" href="profile-badges.html">
-              <img src="/assets/img/badge/blank-s.png" alt="badge-blank-s" />
-              <!-- BADGE ITEM TEXT -->
-              <p class="badge-item-text">+9</p>
-              <!-- /BADGE ITEM TEXT -->
-            </a>
-            <!-- /BADGE ITEM -->
-          </div>
-          <!-- /BADGE LIST -->
-
-          <!-- USER STATS -->
-          <div class="user-stats">
-            <!-- USER STAT -->
-            <div class="user-stat">
-              <!-- USER STAT TITLE -->
-              <p class="user-stat-title">930</p>
-              <!-- /USER STAT TITLE -->
-
-              <!-- USER STAT TEXT -->
-              <p class="user-stat-text">posts</p>
-              <!-- /USER STAT TEXT -->
-            </div>
-            <!-- /USER STAT -->
-
-            <!-- USER STAT -->
-            <div class="user-stat">
-              <!-- USER STAT TITLE -->
-              <p class="user-stat-title">82</p>
-              <!-- /USER STAT TITLE -->
-
-              <!-- USER STAT TEXT -->
-              <p class="user-stat-text">friends</p>
-              <!-- /USER STAT TEXT -->
-            </div>
-            <!-- /USER STAT -->
-
-            <!-- USER STAT -->
-            <div class="user-stat">
-              <!-- USER STAT TITLE -->
-              <p class="user-stat-title">5.7k</p>
-              <!-- /USER STAT TITLE -->
-
-              <!-- USER STAT TEXT -->
-              <p class="user-stat-text">visits</p>
-              <!-- /USER STAT TEXT -->
-            </div>
-            <!-- /USER STAT -->
-          </div>
-          <!-- /USER STATS -->
 
           <!-- MENU -->
           <ul class="menu">
             <!-- MENU ITEM -->
             <li class="menu-item">
               <!-- MENU ITEM LINK -->
-              <a class="menu-item-link" href="newsfeed.html">
+              <a class="menu-item-link" href="/favorites">
                 <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-newsfeed">
-                  <use xlink:href="#svg-newsfeed"></use>
+                <svg class="menu-item-link-icon icon-heart">
+                  <use xlink:href="#svg-heart"></use>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
-                Newsfeed
+                Favorites
               </a>
               <!-- /MENU ITEM LINK -->
             </li>
@@ -894,13 +922,13 @@
             <!-- MENU ITEM -->
             <li class="menu-item active">
               <!-- MENU ITEM LINK -->
-              <a class="menu-item-link" href="overview.html">
+              <a class="menu-item-link" href="/profile">
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-overview">
                   <use xlink:href="#svg-overview"></use>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
-                Overview
+                Profile
               </a>
               <!-- /MENU ITEM LINK -->
             </li>
@@ -909,13 +937,13 @@
             <!-- MENU ITEM -->
             <li class="menu-item">
               <!-- MENU ITEM LINK -->
-              <a class="menu-item-link" href="groups.html">
+              <a class="menu-item-link" href="/search">
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-group">
                   <use xlink:href="#svg-group"></use>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
-                Groups
+                Advanced Pokemon Search
               </a>
               <!-- /MENU ITEM LINK -->
             </li>
@@ -924,107 +952,33 @@
             <!-- MENU ITEM -->
             <li class="menu-item">
               <!-- MENU ITEM LINK -->
-              <a class="menu-item-link" href="members.html">
+              <a class="menu-item-link" href="/pokemon/new">
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-members">
                   <use xlink:href="#svg-members"></use>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
-                Members
+                Create a Pokemon
               </a>
               <!-- /MENU ITEM LINK -->
             </li>
             <!-- /MENU ITEM -->
 
-            <!-- MENU ITEM -->
+              <!-- MENU ITEM -->
             <li class="menu-item">
               <!-- MENU ITEM LINK -->
-              <a class="menu-item-link" href="badges.html">
+              <a class="menu-item-link" href="/auth/logout">
                 <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-badges">
-                  <use xlink:href="#svg-badges"></use>
+                <svg class="menu-item-link-icon icon-members">
+                  <use xlink:href="#svg-members"></use>
                 </svg>
                 <!-- /MENU ITEM LINK ICON -->
-                Badges
+                Logout
               </a>
               <!-- /MENU ITEM LINK -->
             </li>
             <!-- /MENU ITEM -->
 
-            <!-- MENU ITEM -->
-            <li class="menu-item">
-              <!-- MENU ITEM LINK -->
-              <a class="menu-item-link" href="quests.html">
-                <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-quests">
-                  <use xlink:href="#svg-quests"></use>
-                </svg>
-                <!-- /MENU ITEM LINK ICON -->
-                Quests
-              </a>
-              <!-- /MENU ITEM LINK -->
-            </li>
-            <!-- /MENU ITEM -->
-
-            <!-- MENU ITEM -->
-            <li class="menu-item">
-              <!-- MENU ITEM LINK -->
-              <a class="menu-item-link" href="streams.html">
-                <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-streams">
-                  <use xlink:href="#svg-streams"></use>
-                </svg>
-                <!-- /MENU ITEM LINK ICON -->
-                Streams
-              </a>
-              <!-- /MENU ITEM LINK -->
-            </li>
-            <!-- /MENU ITEM -->
-
-            <!-- MENU ITEM -->
-            <li class="menu-item">
-              <!-- MENU ITEM LINK -->
-              <a class="menu-item-link" href="events.html">
-                <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-events">
-                  <use xlink:href="#svg-events"></use>
-                </svg>
-                <!-- /MENU ITEM LINK ICON -->
-                Events
-              </a>
-              <!-- /MENU ITEM LINK -->
-            </li>
-            <!-- /MENU ITEM -->
-
-            <!-- MENU ITEM -->
-            <li class="menu-item">
-              <!-- MENU ITEM LINK -->
-              <a class="menu-item-link" href="forums.html">
-                <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-forums">
-                  <use xlink:href="#svg-forums"></use>
-                </svg>
-                <!-- /MENU ITEM LINK ICON -->
-                Forums
-              </a>
-              <!-- /MENU ITEM LINK -->
-            </li>
-            <!-- /MENU ITEM -->
-
-            <!-- MENU ITEM -->
-            <li class="menu-item">
-              <!-- MENU ITEM LINK -->
-              <a class="menu-item-link" href="marketplace.html">
-                <!-- MENU ITEM LINK ICON -->
-                <svg class="menu-item-link-icon icon-marketplace">
-                  <use xlink:href="#svg-marketplace"></use>
-                </svg>
-                <!-- /MENU ITEM LINK ICON -->
-                Marketplace
-              </a>
-              <!-- /MENU ITEM LINK -->
-            </li>
-            <!-- /MENU ITEM -->
           </ul>
           <!-- /MENU -->
         </nav>
@@ -1110,7 +1064,7 @@
 
               <!-- NAVIGATION WIDGET INFO TITLE -->
               <p class="navigation-widget-info-title">
-                <a href="profile-timeline.html">Marina Valentine</a>
+                <a href="/profile/"><%= currentUser.name %></a>
               </p>
               <!-- /NAVIGATION WIDGET INFO TITLE -->
 
@@ -2714,7 +2668,7 @@
                 <!-- MENU MAIN ITEM -->
                 <li class="menu-main-item">
                   <!-- MENU MAIN ITEM LINK -->
-                  <a class="menu-main-item-link" href="../profile">Profile</a>
+                  <a class="menu-main-item-link" href="/profile">Profile</a>
                   <!-- /MENU MAIN ITEM LINK -->
                 </li>
                 <!-- /MENU MAIN ITEM -->
@@ -2722,7 +2676,7 @@
                 <!-- MENU MAIN ITEM -->
                 <li class="menu-main-item">
                   <!-- MENU MAIN ITEM LINK -->
-                  <a class="menu-main-item-link" href="../favorites">Favorites</a>
+                  <a class="menu-main-item-link" href="/favorites">Favorites</a>
                   <!-- /MENU MAIN ITEM LINK -->
                 </li>
                 <!-- /MENU MAIN ITEM -->

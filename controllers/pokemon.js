@@ -3,12 +3,13 @@ const axios = require('axios');
 
 const router = express.Router();
 const passport = require('../config/ppConfig');
-const { user, pokemon } = require('../models');
+const { user, pokemon, favorite } = require('../models');
 const isLoggedIn = require('../middleware/isLoggedIn');
 
 
 
 router.get('/', function (req, res) {
+    
     pokemon.findAll()
     .then(foundPokemon => {
         // found pokemon

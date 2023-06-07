@@ -12,18 +12,33 @@ router.get('/', isLoggedIn, async (req, res) => {
   res.render('favorites', { favorites: favorites });
 });
 
+// Add favorite Pokemon
 router.post('/:name', isLoggedIn, async (req, res) => {
   try {
+    const { name } = req.params;
+    
+    // Check if a favorite with the same name already exists for this user
+    const existingFavorite = await favorite.findOne({
+      where: {
+        userId: req.user.id,
+        name: name
+      }
+    });
+    if (existingFavorite) {
+      res.status(409).send(`Favorite ${name} already exists`);
+      return;
+    }
+
+    // Create new favorite for user and save to database
     const newFavorite = await favorite.create({
       userId: req.user.id,
-      name: req.params.name
+      name: name
     });
-    res.redirect(`/pokemon/${newFavorite.name}`);
+    res.redirect(`/favorites`);
   } catch (error) {
     console.error('Error adding favorite: ', error);
   }
 });
-
 // Delete a favorite
 router.delete('/remove/:name', isLoggedIn, async (req, res) => {
   try {
@@ -38,10 +53,14 @@ router.delete('/remove/:name', isLoggedIn, async (req, res) => {
       return;
     }
     await fav.destroy();
-    res.redirect(`/pokemon/${fav.name}`);
+    res.redirect(`/favorites`);
   } catch (error) {
     console.error('Error deleting favorite: ', error);
   }
 });
+
+
+
+
 
 module.exports = router;
