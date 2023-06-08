@@ -17,7 +17,6 @@ Pocket Monster (Pokemon) Identification System
 In addition to providing valuable information about each Pokemon character, the app offers an engaging and interactive user experience. Users can easily navigate between related Pokemon using the evolution chain and explore the vast world of Pokemon with ease.
 
 ### Technologies Used
-
 - HTML
 - CSS
 - JavaScript
@@ -28,9 +27,6 @@ Pokemon.ID represents the perfect platform for fans of the Pokemon franchise who
 <hr />
 
 # HOW TO INSTALL
-
-- Requires `node.js`, `postgres`, and `sequelize`
-
 1. `Fork` and `Clone` this repository to your local machine.
 2. Create your `.env` file in the root of the application
 3. Import models `sequelize db:migrate`
@@ -43,7 +39,6 @@ Pokemon.ID represents the perfect platform for fans of the Pokemon franchise who
 
 
 # Main used route
-
 List all Pokemon: /pokemon
 View favorites list: /favorites
 Advanced Pokemon search: /search
