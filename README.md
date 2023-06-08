@@ -1,9 +1,7 @@
 # pokemon-id
 
 Pocket Monster (Pokemon) Identification System
-<b>Pokemon.ID</b> is a Web Application that utilizes API data from <a href="https://github.com/PokeAPI">PokeAPI</a>
-
-The Pokemon Web App is a user-friendly application that allows users to browse and search through a comprehensive database of Pokemon characters. Built using HTML, CSS, and JavaScript, the app retrieves data from the [PokeAPI](https://pokeapi.co/) to provide detailed information about each Pokemon including its type, abilities, stats, and evolutions.
+<b>Pokemon.ID</b> is a Web Application that utilizes API data from <a href="https://github.com/PokeAPI">PokeAPI</a> is a user-friendly application that allows users to browse and search through a comprehensive database of Pokemon characters. Built using HTML, CSS, and JavaScript, the app retrieves data from the [PokeAPI](https://pokeapi.co/) to provide detailed information about each Pokemon including its type, abilities, stats, and evolutions.
 
 ### Features
 
@@ -42,12 +40,6 @@ Pokemon.ID represents the perfect platform for fans of the Pokemon franchise who
 
 <hr />
 
-# How the App works
-
-1. All of the country data are `seeded` to local machine for faster access.
-2. Once country is selected, it will go through the database and output the necessary data.
-3. Also, Current weather information is provided directly from the weather api.
-4. Quote in the homepage is randomly picked from an array of quotes I've picked out on a separate js
 
 ### Seeding Pokemon stats via the PokeAPI Calls
 
