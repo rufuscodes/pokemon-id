@@ -1,58 +1,52 @@
-<!-- GRID -->
 <div class="grid grid-3-3-3-3 centered" style="padding-top: 100px">
   <% for( let i = 0; i < pokemon.length; i++ ) { %> <% let pokemons = pokemon[i]
   %>
 
-  <!-- PRODUCT PREVIEW -->
   <div class="product-preview">
-    <!-- PRODUCT PREVIEW IMAGE -->
     <a href="/pokemon/<%= pokemons.dataValues.name %>">
       <figure class="product-preview-image liquid">
         <img src="<%= pokemons.dataValues.image %>" alt="item-01" />
       </figure>
     </a>
-    <!-- /PRODUCT PREVIEW IMAGE -->
 
-    <!-- PRODUCT PREVIEW INFO -->
     <div class="product-preview-info">
-      <!-- TEXT STICKER -->
-      <p class="text-sticker"><span class="highlighted">$</span> 12.00</p>
-      <!-- /TEXT STICKER -->
-
-      <!-- PRODUCT PREVIEW TITLE -->
       <p class="product-preview-title">
         <a href="/pokemeon/<%= pokemons.dataValues.name %>"
           ><%= pokemons.dataValues.name %></a
         >
       </p>
-      <!-- /PRODUCT PREVIEW TITLE -->
 
-      <!-- PRODUCT PREVIEW CATEGORY -->
-      <p class="product-preview-category digital">
-        <a href="marketplace-category.html"
+      <p>
+        <img
+          src="/assets/icons/<%= pokemons.dataValues.pokeType1 %>.svg "
+          height="20"
+          width="20"
+          alt=""
+        />
+        <a href="/pokemon/type-1/<%= pokemons.dataValues.pokeType1 %>"
           ><%= pokemons.dataValues.pokeType1 %></a
         >
       </p>
-      <!-- /PRODUCT PREVIEW CATEGORY -->
 
-      <!-- PRODUCT PREVIEW TEXT -->
+      <!-- If Pokemon is already favorited -->
       <% if (favorites.includes(pokemons.dataValues.name)) { %>
       <form
         action="/favorites/remove/<%= pokemons.dataValues.name %>?_method=DELETE"
         method="POST"
       >
-        <input type="submit" value="Remove from Favorites" />
+        <button><i class="fas fa-heart"></i> Remove from Favorites</button>
       </form>
+
+      <!-- If Pokemon is not favorited yet -->
       <% } else { %>
       <form action="/favorites/<%= pokemons.dataValues.name %>" method="POST">
-        <input type="submit" value="Add to Favorites" />
+        <button><i class="far fa-heart"></i> Add to Favorites</button>
       </form>
       <% } %>
     </div>
   </div>
 
   <% } %>
-  <!-- /PRODUCT PREVIEW -->
 </div>
 <!-- /GRID -->
 <!-- /SECTION -->

@@ -1,25 +1,6 @@
 <!-- CONTENT GRID -->
 <div class="content-grid">
   <!-- SECTION BANNER -->
-  <div class="section-banner">
-    <!-- SECTION BANNER ICON -->
-    <img
-      class="section-banner-icon"
-      src="/assets/img/banner/overview-icon.png"
-      alt="overview-icon"
-    />
-    <!-- /SECTION BANNER ICON -->
-
-    <!-- SECTION BANNER TITLE -->
-    <p class="section-banner-title">Overview</p>
-    <!-- /SECTION BANNER TITLE -->
-
-    <!-- SECTION BANNER TEXT -->
-    <p class="section-banner-text">Review your account, see stats and more!</p>
-    <!-- /SECTION BANNER TEXT -->
-  </div>
-  <!-- /SECTION BANNER -->
-
   <!-- SECTION HEADER -->
   <div class="section-header">
     <!-- SECTION HEADER INFO -->
@@ -49,24 +30,7 @@
         <!-- PROFILE STATS -->
         <div class="profile-stats fixed-height">
           <!-- PROFILE STATS COVER -->
-          <form
-            action="/auth/profile-upload"
-            method="POST"
-            enctype="multipart/form-data"
-          >
-            <div class="form-group">
-              <label for="profilePic">Profile Picture</label>
-              <input
-                type="file"
-                class="form-control-file"
-                id="profilePic"
-                name="profilePic"
-              />
-            </div>
-            <button type="submit" class="btn btn-primary">
-              Update Profile
-            </button>
-          </form>
+
           <div class="profile-stats-cover">
             <!-- PROFILE STATS COVER TITLE -->
             <p class="profile-stats-cover-title">Welcome Back!</p>
@@ -96,7 +60,7 @@
                 <div>
                   <a href="/profile"
                     ><img
-                      src="<%= currentUser.profilePic || '/images/default-profile-pic.jpg' %>"
+                      src="<%= currentUser.profilePic || '/images/pikachu.webp' %>"
                       alt="Profile Picture"
                       class="rounded-circle profile-pic"
                   /></a>
@@ -104,10 +68,40 @@
                 <!-- /HEXAGON -->
               </div>
             </div>
+
             <!-- /CONTENT GRID -->
           </div>
         </div>
       </div>
+      <form
+        action="/auth/profile-upload"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="form-group">
+          <label for="profilePic">Profile Picture</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="profilePic"
+            name="profilePic"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Update Profile</button>
+      </form>
     </div>
   </div>
 </div>
+
+<script>
+  //to prevent user from pressing upload without selecting file first
+  document
+    .querySelector(".btn.btn-primary")
+    .addEventListener("click", function (event) {
+      var fileInput = document.getElementById("profilePic");
+      if (fileInput.files.length === 0) {
+        event.preventDefault();
+        alert("Please select a file before uploading");
+      }
+    });
+</script>

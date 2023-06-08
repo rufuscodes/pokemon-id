@@ -24,6 +24,11 @@
   height: 150px;
 
 }
+
+body > div.landing > div.landing-info > h1 {text-shadow: 2px 2px 2px #000000;}
+body > aside.floaty-bar > div:nth-child(2), body > aside.floaty-bar > div:nth-child(1) {display:none;}
+
+.action-item-wrap {display:none;}
 body > header > div:nth-child(4), body > header > div:nth-child(5) > div.action-list.dark {display: none !important;}
 
             .element-icon {  padding-left: 10px; text-align: center; color: gold;}
@@ -39,7 +44,95 @@ body > header > div:nth-child(4), body > header > div:nth-child(5) > div.action-
     position: relative;
     transition: all .2s ease-in-out;
 }
+.product-preview.bug {
+    background: #92BC2C;
+    box-shadow: 0 0 20px #92BC2C;
+}
 
+.product-preview.dark {
+    background: #595761;
+    box-shadow: 0 0 20px #595761;
+}
+
+.product-preview.dragon {
+    background: #0C69C8;
+    box-shadow: 0 0 20px #0C69C8;
+}
+
+.product-preview.electric {
+    background: #F2D94E;
+    box-shadow: 0 0 20px #F2D94E;
+}
+
+.product-preview.fire {
+    background: #FBA54C;
+    box-shadow: 0 0 20px #FBA54C;
+}
+
+.product-preview.product-preview.fairy {
+    background: #EE90E6;
+    box-shadow: 0 0 20px #EE90E6;
+}
+
+.product-preview.fighting {
+    background: #D3425F;
+    box-shadow: 0 0 20px #D3425F;
+}
+
+.product-preview.flying {
+    background: #A1BBEC;
+    box-shadow: 0 0 20px #A1BBEC;
+}
+
+.product-preview.product-preview.ghost {
+    background: #5F6DBC;
+    box-shadow: 0 0 20px #5F6DBC;
+}
+
+.product-preview.grass {
+    background: #5FBD58;
+    box-shadow: 0 0 20px #5FBD58;
+}
+
+.product-preview.ground {
+    background: #DA7C4D;
+    box-shadow: 0 0 20px #DA7C4D;
+}
+
+.product-preview.ice {
+    background: #75D0C1;
+    box-shadow: 0 0 20px #75D0C1;
+}
+
+.product-preview.normal {
+    background: #A0A29F;
+    box-shadow: 0 0 20px #A0A29F;
+}
+
+.product-preview.poison {
+    background: #B763CF;
+    box-shadow: 0 0 20px #B763CF;
+}
+
+.product-preview.psychic {
+    background: #FA8581;
+    box-shadow: 0 0 20px #FA8581;
+}
+
+.product-preview.rock {
+    background: #C9BB8A;
+    box-shadow: 0 0 20px #C9BB8A;
+}
+
+.product-preview.steel {
+    background: #5695A3;
+    box-shadow: 0 0 20px #5695A3;
+}
+
+.product-preview.water {
+    background: #539DDF;
+    box-shadow: 0 0 20px #539DDF;
+}
 
         </style>
       </head>
@@ -103,9 +196,7 @@ body > header > div:nth-child(4), body > header > div:nth-child(5) > div.action-
     <!-- LOGO -->
     <div class="logo">
       <!-- ICON LOGO VIKINGER -->
-      <svg class="icon-logo-vikinger">
-        <use xlink:href="#svg-logo-vikinger"></use>
-      </svg>
+
       <!-- /ICON LOGO VIKINGER -->
     </div>
     <!-- /LOGO -->
@@ -464,29 +555,6 @@ body > header > div:nth-child(4), body > header > div:nth-child(5) > div.action-
             </div>
             <!-- /USER AVATAR PROGRESS BORDER -->
 
-            <!-- USER AVATAR BADGE -->
-            <div class="user-avatar-badge">
-              <!-- USER AVATAR BADGE BORDER -->
-              <div class="user-avatar-badge-border">
-                <!-- HEXAGON -->
-                <div class="hexagon-22-24"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR BADGE BORDER -->
-
-              <!-- USER AVATAR BADGE CONTENT -->
-              <div class="user-avatar-badge-content">
-                <!-- HEXAGON -->
-                <div class="hexagon-dark-16-18"></div>
-                <!-- /HEXAGON -->
-              </div>
-              <!-- /USER AVATAR BADGE CONTENT -->
-
-              <!-- USER AVATAR BADGE TEXT -->
-              <p class="user-avatar-badge-text">24</p>
-              <!-- /USER AVATAR BADGE TEXT -->
-            </div>
-            <!-- /USER AVATAR BADGE -->
           </a>
           <!-- /USER AVATAR -->
 
@@ -2706,7 +2774,7 @@ body > header > div:nth-child(4), body > header > div:nth-child(5) > div.action-
                     <!-- MENU MAIN ITEM -->
                     <li class="menu-main-item">
                       <!-- MENU MAIN ITEM LINK -->
-                      <a class="menu-main-item-link" href="#">About Us</a>
+                      <a class="menu-main-item-link" href="/profilee">Profile</a>
                       <!-- /MENU MAIN ITEM LINK -->
                     </li>
                     <!-- /MENU MAIN ITEM -->
@@ -2714,7 +2782,7 @@ body > header > div:nth-child(4), body > header > div:nth-child(5) > div.action-
                     <!-- MENU MAIN ITEM -->
                     <li class="menu-main-item">
                       <!-- MENU MAIN ITEM LINK -->
-                      <a class="menu-main-item-link" href="#">Our Blog</a>
+                      <a class="menu-main-item-link" href="/favorties">Favorites</a>
                       <!-- /MENU MAIN ITEM LINK -->
                     </li>
                     <!-- /MENU MAIN ITEM -->
@@ -2722,17 +2790,24 @@ body > header > div:nth-child(4), body > header > div:nth-child(5) > div.action-
                     <!-- MENU MAIN ITEM -->
                     <li class="menu-main-item">
                       <!-- MENU MAIN ITEM LINK -->
-                      <a class="menu-main-item-link" href="#">Contact Us</a>
+                      <a class="menu-main-item-link" href="/pokemon/new">Create Pokemon</a>
+                      <!-- /MENU MAIN ITEM LINK -->
+                    </li>
+                    <!-- MENU MAIN ITEM -->
+                    <li class="menu-main-item">
+                      <!-- MENU MAIN ITEM LINK -->
+                      <a class="menu-main-item-link" href="/pokemon/edit">Edit Pokemon</a>
+                      <!-- /MENU MAIN ITEM LINK -->
+                    </li>
+
+                    <li class="menu-main-item">
+                      <!-- MENU MAIN ITEM LINK -->
+                      <a class="menu-main-item-link" href="/auth/logout">logout</a>
                       <!-- /MENU MAIN ITEM LINK -->
                     </li>
                     <!-- /MENU MAIN ITEM -->
 
-                    <!-- MENU MAIN ITEM -->
-                    <li class="menu-main-item">
-                      <!-- MENU MAIN ITEM LINK -->
-                      <a class="menu-main-item-link" href="#">Privacy Policy</a>
-                      <!-- /MENU MAIN ITEM LINK -->
-                    </li>
+
                     <!-- /MENU MAIN ITEM -->
                   </ul>
                   <!-- /MENU MAIN -->

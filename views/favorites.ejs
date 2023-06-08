@@ -1,9 +1,18 @@
 <!-- GRID -->
 <div class="grid grid-3-3-3-3 centered" style="padding-top: 100px">
   <% if (favorites.length === 0) { %>
-  <p>You have no favorite Pokemon. <a href="/pokemon">View all Pokemon</a></p>
-  <% } else { %> <% for( let i = 0; i < favorites.length; i++ ) { %> <% let
-  favorite = favorites[i] %>
+  <div class="product-preview">
+    <p>You have no favorite Pokemon. <a href="/pokemon">View all Pokemon</a></p>
+  </div>
+  <% } else { %>
+  <div class="product-preview">
+    <p>
+      You have <%= favorites.length %> favorite Pokemon.
+      <a href="/pokemon">View all Pokemon</a>
+    </p>
+  </div>
+  <% for( let i = 0; i < favorites.length; i++ ) { %> <% let favorite =
+  favorites[i] %>
 
   <div class="product-preview">
     <a href="/pokemon/<%= favorite.dataValues.pokemon.name %>">
@@ -28,7 +37,7 @@
       method="POST"
       onsubmit="return confirm('Are you sure you want to remove this item from your favorites?');"
     >
-      <input type="submit" value="Remove from Favorites" />
+      <button><i class="fas fa-trash-alt"></i> Remove from Favorites</button>
     </form>
   </div>
   <% } %> <% } %>

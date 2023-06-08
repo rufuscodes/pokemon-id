@@ -39,7 +39,10 @@ router.get('/new', function(req, res) {
 });
 
 
-router.post('/new', function(req, res) {
+router.post('/new', isLoggedIn, async function(req, res) {
+        const favorites = await favorite.findAll({
+  where: { userId: req.user.id },
+});
     const parsed_pokemon = {...req.body }
     // change datatype for reuse_count and water_landings
     parsed_pokemon.gameIndex = parseInt(req.body.gameIndex);
@@ -53,7 +56,7 @@ router.post('/new', function(req, res) {
     pokemon.create(parsed_pokemon)
     .then(createdPokemon => {
         console.log('pokemon created', createdPokemon.toJSON());
-        res.render('single-pokemon', { pokemon: createdPokemon });
+        res.render('single-pokemon', { pokemons: createdPokemon, favorites: favorites });
     })
     .catch(err => {
         console.log('Error', err);
@@ -102,7 +105,11 @@ router.put('/edit/:name', function(req, res) {
 
 
 
-router.get('/:name', function (req, res) {
+router.get('/:name', isLoggedIn, async function (req, res) {
+
+        const favorites = await favorite.findAll({
+  where: { userId: req.user.id },
+});
     pokemon.findOne({
         where: { name: req.params.name }
     })
@@ -113,7 +120,7 @@ router.get('/:name', function (req, res) {
         pokemon.findAll()
         .then(pokemons => {
             console.log(pokemons)
-            res.render('single-pokemon', { pokemons: foundPokemon })
+            res.render('single-pokemon', { pokemons: foundPokemon, favorites: favorites  })
         })
         .catch(err => {
             console.log('Error', err);
