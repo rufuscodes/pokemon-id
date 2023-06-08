@@ -120,7 +120,7 @@ router.get('/:name', isLoggedIn, async function (req, res) {
         pokemon.findAll()
         .then(pokemons => {
             console.log(pokemons)
-            res.render('single-pokemon', { pokemons: foundPokemon, favorites: favorites  })
+            res.render('single-pokemon', { pokemons: foundPokemon, favorites: favorites  } || 'no-result', { pokemons: foundPokemon, favorites: favorites  } )
         })
         .catch(err => {
             console.log('Error', err);
@@ -151,12 +151,12 @@ router.get('/type-1/:pokeType1', isLoggedIn, async function (req, res) {
         })
         .catch(err => {
             console.log('Error', err);
-            res.render('no-result');
+            res.render('no-result', { pokemon: foundPokemon, favorites: favorites });
         })
     })
     .catch(err => {
         console.log('Error', err);
-        res.render('no-result');
+        res.render('no-result', { pokemon: foundPokemon, favorites: favorites });
     })
 });
 
@@ -178,17 +178,20 @@ router.get('/type-2/:pokeType2', isLoggedIn, async function (req, res) {
         })
         .catch(err => {
             console.log('Error', err);
-            res.render('no-result');
+            res.render('no-result', { pokemon: foundPokemon, favorites: favorites });
         })
     })
     .catch(err => {
         console.log('Error', err);
-        res.render('no-result');
+        res.render('no-result', { pokemon: foundPokemon, favorites: favorites });
     })
 });
 
 
-router.get('/id/:gameIndex', function (req, res) {
+router.get('/id/:gameIndex',isLoggedIn, async function (req, res) {
+        const favorites = await favorite.findAll({
+        where: { userId: req.user.id },
+});
     pokemon.findOne({
         where: { gameIndex: req.params.gameIndex }
     })
@@ -203,12 +206,12 @@ router.get('/id/:gameIndex', function (req, res) {
         })
         .catch(err => {
             console.log('Error', err);
-            res.render('no-result');
+            res.render('no-result', { pokemon: foundPokemon, favorites: favorites });
         })
     })
     .catch(err => {
         console.log('Error', err);
-        res.render('no-result');
+        res.render('no-result', { pokemon: foundPokemon, favorites: favorites });
     })
 });
 
@@ -236,7 +239,7 @@ const favorites = await favorite.findAll({
             })
             .then(foundPokemon => {
                 console.log(foundPokemon);
-            res.render('poke-search', { pokemon: foundPokemon, favorites: favorites });
+            res.render('poke-search', { pokemon: foundPokemon, favorites: favorites } || 'no-result');
             })
             .catch(err => {
                 console.log('Error', err);
@@ -248,7 +251,7 @@ const favorites = await favorite.findAll({
             })
             .then(foundPokemon => {
                 console.log(foundPokemon);
-                res.render('poke-search', { pokemon: foundPokemon, favorites: favorites });
+                res.render('poke-search', { pokemon: foundPokemon, favorites: favorites } || 'no-result');
 
             })
             .catch(err => {
@@ -262,7 +265,7 @@ const favorites = await favorite.findAll({
             })
             .then(foundPokemon => {
                 console.log(foundPokemon);
-                res.render('poke-search', { pokemon: foundPokemon, favorites: favorites });
+                res.render('poke-search', { pokemon: foundPokemon, favorites: favorites } || 'no-result');
 
             })
             .catch(err => {
@@ -276,7 +279,7 @@ const favorites = await favorite.findAll({
             })
             .then(foundPokemon => {
                 console.log(foundPokemon);
-                res.render('poke-search', { pokemon: foundPokemon, favorites: favorites });
+                res.render('poke-search', { pokemon: foundPokemon, favorites: favorites } || 'no-result');
 
             })
             .catch(err => {
