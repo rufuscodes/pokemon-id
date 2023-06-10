@@ -14,7 +14,11 @@ Pocket Monster (Pokemon) Identification System
 - Edit a Pokemon in the database
 - Ability to upload profile picture
 
-In addition to providing valuable information about each Pokemon character, the app offers an engaging and interactive user experience. Users can easily navigate between related Pokemon using the evolution chain and explore the vast world of Pokemon with ease.
+![Pokemon.id Login](login.png)
+
+<p>In addition to providing valuable information about each Pokemon character, the app offers an engaging and interactive user experience. Users can easily navigate between related Pokemon using the evolution chain and explore the vast world of Pokemon with ease.</p>
+
+![Pokemon.id Results page](logpokemon.png)
 
 ### Technologies Used
 - HTML
