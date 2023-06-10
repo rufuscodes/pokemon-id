@@ -18,7 +18,7 @@ Pocket Monster (Pokemon) Identification System
 
 <p>In addition to providing valuable information about each Pokemon character, the app offers an engaging and interactive user experience. Users can easily navigate between related Pokemon using the evolution chain and explore the vast world of Pokemon with ease.</p>
 
-![Pokemon.id Results page](logpokemon.png)
+![Pokemon](logpokemon.png)
 
 ### Technologies Used
 - HTML
